@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  h2 Running Script
+  p #{running_script}
+  h2 Available Scripts
+  form
+    each script in scripts
+      p
+        if script == running_script
+          input(type="radio",id=script,name="script",value=script,checked)
+        else
+          input(type="radio",id=script,name="script",value=script)
+        label(for=script)= script
+    input(type="submit",value="Update!") 
